@@ -5,7 +5,9 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import React from "react";
 import "./Post.css";
 
-function Posts({ userName, imageUrl, likes, message, comments }) {
+function Posts({ post }) {
+  const { userName, imageUrl, likes, caption, comments } = post;
+
   return (
     <div className="post">
       <div className="post__container">
@@ -37,7 +39,7 @@ function Posts({ userName, imageUrl, likes, message, comments }) {
         </div>
         <div className="post__caption">
           <strong>{userName}</strong>
-          <p>{message}</p>
+          <p>{caption}</p>
         </div>
         <div className="post__comment">
           <p>{comments}</p>
