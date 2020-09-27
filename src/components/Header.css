@@ -1,0 +1,39 @@
+.header {
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0%;
+  z-index: 100;
+  background-color: white;
+}
+.header__container {
+  max-width: 950px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__iconcontainer {
+  position: relative;
+}
+@media (max-width: 768px) {
+  .header__iconcontainer {
+    display: none;
+  }
+}
+.header__iconcontainer > img {
+  width: 100%;
+  object-fit: contain;
+}
+.header__iconcontainer > input {
+  padding: 0.3rem;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  width: 12rem;
+}
+.header__icon {
+  position: absolute;
+  left: 175px;
+  top: 2px;
+  color: lightgray;
+}
