@@ -1,0 +1,26 @@
+.app__formular {
+  display: flex;
+  flex-direction: column;
+}
+.app__logincontainer {
+  max-width: 1000px;
+  width: 95%;
+  display: flex;
+  margin: auto;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.app__logincontainer > button {
+  margin-right: 0.5rem;
+  width: 5rem;
+  height: 1.8rem;
+  font-size: 1rem;
+  text-transform: none;
+  background-color: rgb(197, 195, 195);
+  color: white;
+}
+
+.app__logincontainer > button:hover {
+  background-color: rgb(184, 183, 183);
+}

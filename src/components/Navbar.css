@@ -6,3 +6,10 @@
   color: black;
   margin-right: 1rem;
 }
+.avatar__navbar {
+  border: 1px solid red;
+  transition: 0.2s ease;
+}
+.avatar__navbar:hover {
+  box-shadow: inset 0 0 0 2px white;
+}
