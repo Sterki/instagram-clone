@@ -6,7 +6,7 @@ import React from "react";
 import "./Post.css";
 
 function Posts({ post }) {
-  const { userName, imageUrl, likes, caption, comments } = post;
+  const { username, imageUrl, likes, caption, comments } = post;
 
   return (
     <div className="post">
@@ -14,10 +14,10 @@ function Posts({ post }) {
         <div className="post__infouser">
           <Avatar
             style={{ width: "1.8rem", height: "1.8rem" }}
-            alt="Alex Rodriguez"
+            alt={username}
             src="/static/images/avatar/1.jpg"
           />
-          <h2>{userName}</h2>
+          <h2>{username}</h2>
         </div>
 
         <img src={imageUrl} />
@@ -38,7 +38,7 @@ function Posts({ post }) {
           <strong>{likes}</strong>
         </div>
         <div className="post__caption">
-          <strong>{userName}</strong>
+          <strong>{username}</strong>
           <p>{caption}</p>
         </div>
         <div className="post__comment">

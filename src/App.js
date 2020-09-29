@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import store from "./store";
 import { Provider, useDispatch } from "react-redux";
 import { getUserAction, setUserNull } from "./actions/userActions";
+import ImageUpload from "./components/ImageUpload";
 
 function getModalStyle() {
   const top = 50;
@@ -48,15 +49,8 @@ function wrapApp() {
 }
 
 function App() {
-  const history = useHistory();
   const [posts, setPosts] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [openlogin, setOpenLogin] = useState(false);
-  const classes = useStyles();
-  const [modalStyle] = useState(getModalStyle);
   const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
 
@@ -84,7 +78,7 @@ function App() {
       );
     });
   }, []);
-
+  console.log(posts);
   return (
     <div className="app">
       {/* Icon from instagram */}
@@ -93,6 +87,7 @@ function App() {
           <Switch>
             <Route>
               <Header />
+              <ImageUpload />
               <HeaderSecond />
               {posts.map(({ id, post }) => (
                 <Post key={id} post={post} />

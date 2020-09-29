@@ -13,6 +13,9 @@ import { db, auth } from "./../firebase";
 import { Input, makeStyles, Modal } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAction } from "../actions/userActions";
+import ImageUpload from "./ImageUpload";
+import { setOpenAction } from "./../actions/boleanAction";
+import AddIcon from "@material-ui/icons/Add";
 
 function getModalStyle() {
   const top = 50;
@@ -32,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     border: "1px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(3, 5, 3),
+    borderRadius: 5,
   },
 }));
 
@@ -46,9 +50,12 @@ function Navbar() {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   const userloged = useSelector((state) => state.user.userloged);
+
+  const setOpenToTrue = () => {
+    dispatch(setOpenAction());
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -183,7 +190,14 @@ function Navbar() {
           </form>
         </div>
       </Modal>
+
       <div className="navbar">
+        {userloged ? (
+          <Link className="navbar__links">
+            <AddIcon className="Icon__Add" onClick={setOpenToTrue} />
+          </Link>
+        ) : null}
+
         <Link className="navbar__links" to="/">
           <HomeIcon style={{ width: "1.8rem", height: "1.8rem" }} />
         </Link>
@@ -205,6 +219,7 @@ function Navbar() {
             src="/static/images/avatar/1.jpg"
           />
         </Link>
+
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
